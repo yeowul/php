@@ -1,9 +1,9 @@
 <?php
-    $con=mysqli_connect('localhost','root',''); //(host,username,pw)
-    mysqli_select_db($con,'opentutorals');
+    $con=mysqli_connect("localhost","root","","opentutorals"); //(host,username,pw)
+    // mysqli_select_db($con,'opentutorals');
     switch($_GET['mode']){
         case 'insert':
-            $sql="INSERT INTO topic (title, description, created) VALUES ('".mysqli_real_escape_string($con,$_POST['title'])."', '".mysqli_real_escape_string($con,$_POST['description']."', now())");
+            $sql="INSERT INTO topic (title, description, created) VALUES ('".mysqli_real_escape_string($con,$_POST['title'])."', '".mysqli_real_escape_string($con,$_POST['description'])."', now())";
             echo $sql;
             $result = mysqli_query($con,$sql);
             // header("Location: list.php"); 
